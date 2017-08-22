@@ -15,11 +15,13 @@ class Stack:
 
     def peek(self): #return but do not remove top element
         if self.is_empty():
-            raise Empty('Stack is empty')
+            raise Exception('Stack is empty')
         return self.data[-1]
 
     def pop(self):
         if self.is_empty():
-            raise Empty('Stack is empty')
+            raise Exception('Stack is empty')
         return self.data.pop()
-
+    
+    def __repr__(self):
+        return str(self.data)

@@ -8,7 +8,7 @@ FOLLOW UP
 Implement a function popAt(index) which performs a pop operation on a specific sub-stack.
 '''
 
-#This version does not answer the followup. See part two. 
+#Part 2 contains followup answer
 
 class SetOfStacks():
     

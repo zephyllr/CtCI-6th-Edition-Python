@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+#Main Linked List implementation for CtCi
 from random import randint
 
 class LLNode:
@@ -17,7 +18,6 @@ class LinkedList:
     def __init__(self, values=None):
         self.head = None #base of stack
         self.tail = None #for doublyll
-        self.size = 0
         if values is not None:
             self.add_multiple(values)
 
@@ -32,10 +32,15 @@ class LinkedList:
         return '-> '.join(values)
 
     def __len__(self):
-        return self.size
+        node = self.head
+        size = 0
+        while node:
+            size += 1
+            node = node.next
+        return size 
 
     def is_empty(self):
-        return self.size == 0
+        return self.head
 
     def push(self, value): #add to top/end/after tail
         if self.head is None:
@@ -43,7 +48,6 @@ class LinkedList:
         else:
             self.tail.next = LLNode(value)
             self.tail = self.tail.next
-        self.size += 1
         return self.tail
 
     def shift(self, value): #add to base/beginning/before head
@@ -51,11 +55,10 @@ class LinkedList:
             self.head = self.tail = LLNode(value)
         else:
             self.head = LLNode( value, self.head )
-        self.size -= 1
         return self.head
         
     def unshift(self): #remove from top/end/after tail
-        if self.is_empty():
+        if self.head is None:
             raise Empty('Linked List is empty')
         removed = self.head.value
         self.head = self.head.next

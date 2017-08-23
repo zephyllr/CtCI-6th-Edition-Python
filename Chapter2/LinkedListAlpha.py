@@ -1,6 +1,6 @@
 from random import randint
 
-
+#CtCi Python Linked List Implementation
 class LinkedListNode:
 
     def __init__(self, value, nextNode=None, prevNode=None):
